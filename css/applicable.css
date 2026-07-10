@@ -1,0 +1,270 @@
+/* 区域整体样式 */
+.applicable-hero {
+    position: relative;
+    /* 作为定位参照 */
+    width: 100%;
+    height: 0;
+    margin-top: 90px;
+    overflow: hidden;
+    height: 650px;
+
+}
+
+/* 独立图片 */
+.applicable-img {
+    height: 650px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    /* 关键：完整显示，不裁剪 */
+    filter: brightness(0.55);
+    /* 保证文字可读 */
+    z-index: 1;
+}
+
+/* 文字层 */
+.applicable-content {
+    position: absolute;
+    inset: 0;
+    /* 等价于 top:0;right:0;bottom:0;left:0 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+.applicable-title {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, .4);
+}
+
+
+.applicable-desc {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.solutions-section {
+    width: 100%;
+    padding: 48px 0 60px;
+    background: #fff;
+}
+
+.section-header {
+    text-align: center;
+    margin: 0 auto 28px;
+    max-width: 980px;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    margin: 0 0 8px;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* 网格布局：两列等大，单列在小屏 */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.solution-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    min-height: 100%;
+}
+
+.solution-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  cursor: pointer;
+  padding: 12px 12px 16px;
+  border: 1px solid #e8ecf0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-media,
+.solution-card > picture,
+.solution-card > .card-image,
+.card-image {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.solution-card > picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px 4px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.card-desc {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+/* 场景卡片 CTA — 胶囊按钮（本页专用，避免 components 缓存未更新时样式丢失） */
+.solution-card-link .card-link,
+.solution-card-link .card-action-link,
+.solution-card .card-link,
+.solution-card .card-action-link {
+  display: inline-block;
+  margin-top: auto;
+  padding: 7px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #1a73e8;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(26, 115, 232, 0.1);
+  border: 1px solid rgba(26, 115, 232, 0.3);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.solution-card-link .card-link::after,
+.solution-card-link .card-action-link::after,
+.solution-card .card-link::after,
+.solution-card .card-action-link::after {
+  content: " →";
+  font-weight: 700;
+}
+
+.solution-card-link:hover .card-link,
+.solution-card-link:hover .card-action-link,
+.solution-card-link .card-link:hover,
+.solution-card-link .card-action-link:hover {
+  color: #fff;
+  background: #1a73e8;
+  border-color: #1a73e8;
+  box-shadow: 0 3px 10px rgba(26, 115, 232, 0.35);
+  text-decoration: none;
+}
+
+.solution-card-link:hover .solution-card {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 移动端适配补丁 ===== */
+@media (max-width: 768px) {
+
+    /* 1. Hero 区域 */
+    .applicable-hero {
+        height: 62vh;
+        /* 用视口高度更灵活 */
+        min-height: 420px;
+        /* 极限小屏也够用 */
+        margin-top: 0px;
+        /* 顶部导航可能变矮，相应减少 */
+    }
+
+    .applicable-img {
+        height: 100%;
+        /* 跟随父级 */
+        object-fit: cover;
+        /* 两侧允许被裁，保证主体可见 */
+    }
+
+    .applicable-title {
+        font-size: clamp(2rem, 7vw, 2.6rem);
+        padding: 0 16px;
+        /* 左右留安全距 */
+    }
+
+    .applicable-desc {
+        font-size: clamp(.9rem, 3vw, 1.1rem);
+        padding: 0 16px;
+        margin-bottom: 32px;
+    }
+
+    /* 2. 解决方案网格 */
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        /* 单列 */
+        gap: 20px;
+        width: 92%;
+        /* 两侧留缝 */
+    }
+
+    /* 3. 卡片微调 */
+    .card-image {
+        aspect-ratio: 16 / 10;
+        height: auto;
+    }
+
+    .card-content {
+        padding: 14px 16px 18px;
+    }
+
+    .card-title {
+        font-size: 1.05rem;
+    }
+
+    .card-desc {
+        font-size: .9rem;
+    }
+}
+
+/* 5. 极小屏（折叠屏/SE）再压一点字 */
+@media (max-width: 375px) {
+    .applicable-title {
+        font-size: 1.6rem;
+    }
+
+    .applicable-desc {
+        font-size: .9rem;
+    }
+}

@@ -1,0 +1,343 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* 面包屑左对齐，与下方 solutions-grid 左缘一致 */
+.breadcrumb-nav {
+    width: 100%;
+    background: #fff;
+}
+
+body:has(main .solutions-section) .breadcrumb-nav .breadcrumb-column {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 28px 0 12px;
+    padding-left: max(5%, calc((100% - min(90%, 1200px)) / 2));
+    box-sizing: border-box;
+}
+
+body:has(main .solutions-section) .breadcrumb-nav .breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.breadcrumb-nav .breadcrumb-column {
+    box-sizing: border-box;
+}
+
+.breadcrumb-nav .page-seo-bar {
+    margin: 8px 0 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #8a9199;
+}
+
+.breadcrumb-nav .page-seo-bar a,
+.breadcrumb-nav .page-seo-bar a:link,
+.breadcrumb-nav .page-seo-bar a:visited {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(52, 152, 219, 0.35);
+}
+
+.breadcrumb-nav .page-seo-bar a:hover {
+    color: #2980b9;
+    border-bottom-color: #2980b9;
+}
+
+.resource-hero {
+    position: relative;
+    /* 作为定位参照 */
+    width: 100%;
+    height: 0;
+    margin-top: 90px;
+    overflow: hidden;
+    height: 650px;
+
+}
+
+/* 独立图片 */
+.resource-img {
+    height: 650px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 关键：完整显示，不裁剪 */
+    filter: brightness(0.55);
+    /* 保证文字可读 */
+    z-index: 1;
+}
+
+/* 文字层 */
+.resource-content {
+    position: absolute;
+    inset: 0;
+    /* 等价于 top:0;right:0;bottom:0;left:0 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+.resource-title {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, .4);
+}
+
+
+
+.resource-desc {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.solutions-section {
+    width: 100%;
+    padding: 48px 0 60px;
+    background: #fff;
+}
+
+.section-header {
+    text-align: center;
+    margin: 0 auto 28px;
+    max-width: 980px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    margin: 0 0 8px;
+}
+
+.section-header p {
+    color: #6b7280;
+    margin: 0;
+}
+
+/* 网格布局：两列等大，单列在小屏 */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.solution-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    min-height: 100%;
+}
+
+.solution-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  cursor: pointer;
+  padding: 12px 12px 16px;
+}
+
+.card-media {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px 4px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.card-desc {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+/* ========= 移动端适配 ========= */
+@media (max-width: 768px) {
+    .resource-hero {
+        margin-top: -20px;
+        min-height: 400px;
+        height: 30vh;
+    }
+
+    .breadcrumb-nav {
+        margin-top: 0;
+    }
+
+    body:has(main .solutions-section) .breadcrumb-nav .breadcrumb-column {
+        padding: 20px 20px 8px;
+        padding-left: 20px;
+    }
+
+    .breadcrumb-inner {
+        margin-top: 0;
+        margin-left: 0;
+        width: auto;
+        font-size: 1rem;
+        gap: 6px;
+    }
+
+    .breadcrumb-current {
+        white-space: normal;
+    }
+
+    .solutions-section {
+        padding: 30px 0 40px;
+    }
+
+    .section-header {
+        margin: 0 auto 20px;
+        padding: 0 20px;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-header p {
+        font-size: 0.9rem;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 92%;
+    }
+
+    .solution-card {
+        border-radius: 12px;
+    }
+
+    .card-media {
+        aspect-ratio: 16 / 10;
+    }
+
+    .card-content {
+        padding: 14px 16px 16px;
+    }
+
+    .card-title {
+        font-size: 1.05rem;
+    }
+
+    .card-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb-nav {
+        margin-top: 0;
+    }
+
+    body:has(main .solutions-section) .breadcrumb-nav .breadcrumb-column {
+        padding-left: 16px;
+    }
+
+    .breadcrumb-inner {
+        margin-top: 0;
+        font-size: 0.9rem;
+    }
+
+    .solutions-section {
+        padding: 20px 0 30px;
+    }
+
+    .section-header {
+        margin: 0 auto 15px;
+    }
+
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .section-header p {
+        font-size: 0.85rem;
+    }
+
+    .solutions-grid {
+        gap: 16px;
+        width: 94%;
+    }
+
+    .card-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .card-content {
+        padding: 12px 14px 14px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-desc {
+        font-size: 0.85rem;
+    }
+}
+
+/* 原有的桌面端响应式样式保持不变 */
+@media (max-width: 900px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+}
+
+/* 原有的面包屑响应式样式保持不变 */
+@media (max-width: 768px) {
+    .breadcrumb-inner {
+        margin-top: 0;
+        font-size: 0.85rem;
+        gap: 6px;
+    }
+}
