@@ -1367,7 +1367,7 @@
 }
 
 .news-list .news-item-content::after {
-  content: "Read more →";
+  content: "阅读更多 →";
   display: inline-block;
   margin-top: auto;
   padding-top: 14px;
