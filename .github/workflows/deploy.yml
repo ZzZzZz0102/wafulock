@@ -1,0 +1,21 @@
+name: Deploy Website to West Host
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull source code
+        uses: actions/checkout@v4
+
+      - name: FTP upload static files
+        uses: SamKirkland/FTP-Deploy-Action@4.5.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./
+          server-dir: /wwwroot/
+          clean-server: true
