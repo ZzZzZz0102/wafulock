@@ -1,21 +1,49 @@
-name: Deploy Website to West Host
+name: Deploy to Aliyun ECS via SSH
+
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # 当推送到 main 分支时触发部署
 
 jobs:
   deploy:
+    name: Deploy code to server
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: FTP upload files
-        uses: SamKirkland/FTP-Deploy-Action@4.4.0
+      - name: Deploy files via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PWD }}
-          local-dir: ./
-          server-dir: /var/ftp/pub/wafulock/
-          clean-server: false
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: "."
+          target: "/var/www/html"
+          strip_components: 1  # 避免创建额外目录层级
+          rm: true             # 删除服务器上已不存在的文件（可选）name: Deploy to Aliyun ECS via SSH
+
+on:
+  push:
+    branches: [ main ]  # 当推送到 main 分支时触发部署
+
+jobs:
+  deploy:
+    name: Deploy code to server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy files via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: "."
+          target: "/home/web/wafulock"
+          strip_components: 1  # 避免创建额外目录层级
+          rm: true             # 删除服务器上已不存在的文件（可选）
