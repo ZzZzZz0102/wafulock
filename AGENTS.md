@@ -1,4 +1,4 @@
-# cnwafunew（中文 · 国内站）
+# cnwafunew（简体中文 · 国内站）
 
 > 先读 [`../AGENTS.md`](../AGENTS.md)，再读本文。冲突时以根文档为准。
 
@@ -37,7 +37,7 @@
 ### 2.3 SEO / 域名
 
 - canonical / og / 分享 / 微博 url：**一律** `https://wafulock.cn/...`
-- 不要把国际站 `x-default` 改成中文站；`x-default` 属于英文国际主站策略。
+- 不要把国际站 `x-default` 改成简体中文站；`x-default` 属于英文国际主站策略。
 
 ## 3. 联系表单（发信）
 
@@ -50,7 +50,7 @@
 ## 4. 编码
 
 - UTF-8 **无 BOM**（历史 BOM 已按仓库策略清理；写回时禁止再加 BOM）。
-- 中文正文对编码错误极敏感：写文件必须用无 BOM UTF-8 API。
+- 简体中文正文对编码错误极敏感：写文件必须用无 BOM UTF-8 API。
 - 保留 `<meta charset="UTF-8">`。
 
 ## 5. 扫描与忽略
@@ -63,7 +63,7 @@
 - [ ] 无 Twitter/Facebook/wa.me
 - [ ] 微博分享域名 = wafulock.cn
 - [ ] `article-share.js` / `wechat-footer.js` 按需存在
-- [ ] 无 BOM；中文标题可读
+- [ ] 无 BOM；简体中文标题可读
 - [ ] 站内链无 `.html`
 
 ## 7. 延伸阅读
