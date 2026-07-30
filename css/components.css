@@ -614,6 +614,17 @@ body.wechat-modal-open {
   word-break: break-word;
 }
 
+.footer-contact-link,
+.footer-contact-link:link,
+.footer-contact-link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-contact-link:hover {
+  color: rgb(26, 115, 232);
+}
+
 .footer-icon {
   flex-shrink: 0;
   width: 18px;
