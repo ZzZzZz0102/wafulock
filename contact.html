@@ -12,10 +12,10 @@
     <link rel="canonical" href="https://wafulock.cn/contact">
 <link rel="alternate" hreflang="en" href="https://wafuen.com/contact">
 <link rel="alternate" hreflang="de" href="https://wafulockde.com/contact">
-<link rel="alternate" hreflang="pt" href="https://wafulockpt.com/contact">
 <link rel="alternate" hreflang="es" href="https://wafulockes.com/contact">
 <link rel="alternate" hreflang="fr" href="https://wafulockfr.com/contact">
 <link rel="alternate" hreflang="it" href="https://wafulockit.com/contact">
+<link rel="alternate" hreflang="pt" href="https://wafulockpt.com/contact">
 <link rel="alternate" hreflang="ru" href="https://wafulockru.com/contact">
 <link rel="alternate" hreflang="zh-CN" href="https://wafulock.cn/contact">
 <link rel="alternate" hreflang="x-default" href="https://wafuen.com/contact">
@@ -37,22 +37,7 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17790114591"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('consent', 'default', {
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
-            ad_personalization: 'denied',
-            analytics_storage: 'denied',
-            wait_for_update: 500
-        });
-        gtag('config', 'AW-17790114591', {
-            allow_google_signals: false,
-            allow_ad_personalization_signals: false
-        });
-    </script>
+    
 
 
 
@@ -70,75 +55,7 @@
 
     <link rel="stylesheet" href="./css/contact.css">
     <link rel="stylesheet" href="./css/components.css?v=20260622">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof emailjs === 'undefined') return;
-
-            emailjs.init('kiY7Ni8dk8ID8Mn47');
-
-            var form = document.getElementById('contactForm');
-            if (!form) return;
-
-            form.dataset.contactReady = 'true';
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                var name = document.getElementById('name').value.trim();
-                var phone = document.getElementById('phone').value.trim();
-                var email = document.getElementById('email').value.trim();
-                var product = document.getElementById('product').value.trim();
-                var scenario = document.getElementById('scenario').value.trim();
-                var message = document.getElementById('message').value.trim();
-
-                if (!name || !phone) {
-                    alert('请填写姓名/公司名称和电话号码。');
-                    return;
-                }
-
-                if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    alert('请输入有效的邮箱地址。');
-                    return;
-                }
-
-                var submitBtn = form.querySelector('.submit-btn, button[type="submit"]');
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = '发送中...';
-                }
-
-                emailjs.send('service_vs616cb', 'template_u99zynh', {
-                    from_name: name,
-                    from_email: email,
-                    name: name,
-                    phone: phone,
-                    product: product,
-                    scenario: scenario,
-                    message: message
-                }).then(function () {
-                    if (window.WafuAnalytics && typeof window.WafuAnalytics.trackConversion === 'function') {
-                        window.WafuAnalytics.trackConversion();
-                    } else if (typeof gtag === 'function') {
-                        gtag('event', 'conversion', {
-                            send_to: 'AW-17790114591/ujr9CP-_iN4bEJ-2_qJC',
-                            value: 1.0,
-                            currency: 'CNY'
-                        });
-                    }
-
-                    alert('信息已发送，我们将在 1 个工作日内与您联系。');
-                    form.reset();
-                }).catch(function () {
-                    alert('发送失败，请稍后重试，或发送邮件至 wafutechnology@outlook.com');
-                }).finally(function () {
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = '发送信息';
-                    }
-                });
-            });
-        });
-    </script>
+    
 </head>
 
 <body>
@@ -399,6 +316,7 @@
         </div>
     </footer>
     <script src="./js/email.min.js"></script>
+    <script src="./js/contact-form.js" defer></script>
     <script src="./js/wechat-footer.js?v=20260705" defer></script>
     <script src="./js/all.js" defer></script>
     <script src="./js/analytics-deferred.js" defer></script>

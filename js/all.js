@@ -347,6 +347,15 @@
             const link = item.querySelector('.nav-link');
 
             link.addEventListener('click', function (e) {
+                const isToggleOnly = !this.matches('a[href]');
+
+                if (isToggleOnly) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleDropdown(item);
+                    return;
+                }
+
                 // 只在移动端处理
                 if (window.innerWidth <= 958) {
                     const linkRect = this.getBoundingClientRect();
@@ -362,36 +371,7 @@
                         // 点击箭头区域：展开/收起菜单
                         e.preventDefault();
                         e.stopPropagation();
-
-                        const dropdownMenu = item.querySelector('.dropdown-menu');
-                        const isActive = item.classList.contains('active');
-
-
-                        // 先关闭所有其他下拉菜单
-                        dropdownItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                                const otherMenu = otherItem.querySelector('.dropdown-menu');
-                                if (otherMenu) {
-                                    otherMenu.classList.remove('active');
-                                }
-                            }
-                        });
-
-                        // 切换当前菜单
-                        if (isActive) {
-                            // 当前已展开，收起它
-                            item.classList.remove('active');
-                            if (dropdownMenu) {
-                                dropdownMenu.classList.remove('active');
-                            }
-                        } else {
-                            // 当前未展开，展开它
-                            item.classList.add('active');
-                            if (dropdownMenu) {
-                                dropdownMenu.classList.add('active');
-                            }
-                        }
+                        toggleDropdown(item);
                     } else {
                         // 点击文字区域：正常跳转
                         // 不阻止默认行为，让浏览器正常跳转
@@ -417,6 +397,22 @@
                 });
             }
         });
+
+        function toggleDropdown(item) {
+            const dropdownMenu = item.querySelector('.dropdown-menu');
+            const isActive = item.classList.contains('active');
+
+            dropdownItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherMenu = otherItem.querySelector('.dropdown-menu');
+                    if (otherMenu) otherMenu.classList.remove('active');
+                }
+            });
+
+            item.classList.toggle('active', !isActive);
+            if (dropdownMenu) dropdownMenu.classList.toggle('active', !isActive);
+        }
 
         // 点击页面其他地方关闭所有菜单
         document.addEventListener('click', function (e) {

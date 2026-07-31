@@ -27,22 +27,7 @@
     <link rel="preload" href="./images/webp/about-video-bilibili-cover.jpg?v=20260701" as="image" fetchpriority="high">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17790114591"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('consent', 'default', {
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
-            ad_personalization: 'denied',
-            analytics_storage: 'denied',
-            wait_for_update: 500
-        });
-        gtag('config', 'AW-17790114591', {
-            allow_google_signals: false,
-            allow_ad_personalization_signals: false
-        });
-    </script>
+    
     <link rel="preload" href="./images/webp/mobile/carousel-first.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
     <link rel="preload" href="./images/webp/carousel-first.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
 
@@ -54,10 +39,10 @@
 
 <link rel="alternate" hreflang="en" href="https://wafuen.com/">
 <link rel="alternate" hreflang="de" href="https://wafulockde.com/">
-<link rel="alternate" hreflang="pt" href="https://wafulockpt.com/">
 <link rel="alternate" hreflang="es" href="https://wafulockes.com/">
 <link rel="alternate" hreflang="fr" href="https://wafulockfr.com/">
 <link rel="alternate" hreflang="it" href="https://wafulockit.com/">
+<link rel="alternate" hreflang="pt" href="https://wafulockpt.com/">
 <link rel="alternate" hreflang="ru" href="https://wafulockru.com/">
 <link rel="alternate" hreflang="zh-CN" href="https://wafulock.cn/">
 <link rel="alternate" hreflang="x-default" href="https://wafuen.com/">
@@ -67,18 +52,6 @@
     <noscript>
         <link rel="stylesheet" href="./css/components.css?v=20260622">
     </noscript>
-    <style>
-        /* About 布局兜底：防止 CDN/浏览器缓存旧 index.css 导致桌面左右颠倒 */
-        @media (min-width:959px){
-            .about-container{display:grid!important;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr)!important;grid-template-rows:auto auto!important;gap:0 26px!important;max-width:1480px;width:94%;margin:0 auto}
-            .about-video-col{grid-column:1!important;grid-row:1/span 2!important}
-            .about-title{grid-column:2!important;grid-row:1!important}
-            .about-body{grid-column:2!important;grid-row:2!important}
-        }
-        @media (max-width:958px){
-            .about-container{display:flex!important;flex-direction:column!important}
-        }
-    </style>
 
 
 
