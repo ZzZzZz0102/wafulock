@@ -1740,16 +1740,6 @@ img.lazy.loaded {
     contain: layout style;
   }
 
-  .product-all,
-  .solutions-section,
-  .news-list,
-  .about-intro,
-  .about-env,
-  .about-cert,
-  .contact-section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 400px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
