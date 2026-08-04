@@ -7,12 +7,25 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Search-engine discovery files must be served directly as public text/XML.
+  RewriteRule ^robots\.txt$ - [END]
+  RewriteRule ^sitemap\.xml$ - [END]
+
   # Keep real files and directories untouched (including sitemap.xml and robots.txt).
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !/$
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
   RewriteRule ^(.+)$ $1.html [END]
+</IfModule>
+
+<FilesMatch "^(robots\.txt|sitemap\.xml)$">
+  Require all granted
+</FilesMatch>
+
+<IfModule mod_mime.c>
+  AddType text/plain .txt
+  AddType application/xml .xml
 </IfModule>
 
 # Static asset caching for Lighthouse / production performance
