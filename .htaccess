@@ -1,3 +1,20 @@
+# Extensionless canonical URLs
+# The site links internally without ".html" (for example /products), while
+# the deployed files are static HTML files (for example products.html).
+# _redirects is not read by the ECS web server, so handle the mapping here.
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Keep real files and directories untouched (including sitemap.xml and robots.txt).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^(.+)$ $1.html [END]
+</IfModule>
+
 # Static asset caching for Lighthouse / production performance
 <IfModule mod_expires.c>
   ExpiresActive On
