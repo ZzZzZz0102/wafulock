@@ -124,7 +124,7 @@ const toc = `<nav class="wafu-toc" aria-label="目录">
 const introIdx = html.findIndex((h) => h.includes('id="introduction"'));
 if (introIdx > 0) html.splice(introIdx, 0, toc);
 
-const editorNote = `<p class="wafu-editor-note">本文由华府智能技术中心整理，面向品牌方、OEM/ODM 采购团队与系统集成商。WAFU 智能锁成立于 2013 年，专注 B2B 智能锁解决方案，通过 ISO 9001:2015 质量管理体系认证，CE/FCC/RoHS 全球合规。转载引用请注明来源。</p>`;
+const editorNote = `<p class="wafu-editor-note">本文由WAFU智能技术中心整理，面向品牌方、OEM/ODM 采购团队与系统集成商。WAFU 智能锁成立于 2013 年，专注 B2B 智能锁解决方案，通过 ISO 9001:2015 质量管理体系认证，CE/FCC/RoHS 全球合规。转载引用请注明来源。</p>`;
 
 const bodyInner = editorNote + '\n' + html.join('\n');
 
@@ -149,9 +149,9 @@ if (appendixIdx >= 0) {
 }
 
 const slug = 'invisible-lock-odm-development-guide';
-const title = '隐形锁ODM系统重构指南 | 华府智能 WAFU';
+const title = '隐形锁ODM系统重构指南 | WAFU智能 WAFU';
 const desc = '从外观贴牌到系统级工程重构：联合实验室、认证前置与数据闭环，帮助品牌方降低全生命周期成本、提升出海竞争力。';
-const keywords = '隐形锁ODM, 系统重构, 智能锁贴牌, 联合实验室, 出海认证, 低功耗设计, EMC设计, 可靠性验证, OEM合作, 华府智能';
+const keywords = '隐形锁ODM, 系统重构, 智能锁贴牌, 联合实验室, 出海认证, 低功耗设计, EMC设计, 可靠性验证, OEM合作, WAFU智能';
 const date = '2026-07-15';
 const canonical = `https://wafulock.cn/resource/${slug}`;
 const ogTitleEnc = encodeURIComponent(title);
@@ -181,7 +181,7 @@ const articleBlock = `                <header class="wafu-article-header">
                     <h1 class="wafu-article-title">隐形锁ODM定制化：从外观贴牌到系统级工程重构</h1>
                     <div class="wafu-article-meta">
                         <time datetime="${date}">2026年7月15日</time>
-                        <span class="wafu-article-author">华府智能技术中心</span>
+                        <span class="wafu-article-author">WAFU智能技术中心</span>
                         <span class="wafu-article-tags">
                             <em class="wafu-tag">隐形锁 ODM</em>
                             <em class="wafu-tag">系统重构</em>
